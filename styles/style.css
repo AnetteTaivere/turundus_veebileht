@@ -145,10 +145,16 @@ nav ul li a {
     font-weight: 550;
 }
 
+.header-index {
+    z-index: 10;
+    position: relative;
+}
+
 .container-left {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    z-index: 1;
 }
 
 .box1, .box2 {
@@ -177,17 +183,18 @@ nav ul li a {
     align-items: center;
     padding: 50px 0;
     gap: 30px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .sissejuh-text {
     flex: 1;
     padding: 40px;
-    background-color: #ffffff;
     border-radius: 10px;
 }
 
 .sissejuh-text h3 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     margin-bottom: 30px;
     color: #333;
     font-weight: 600;
