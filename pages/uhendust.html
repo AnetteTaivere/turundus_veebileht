@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta property="og:description" content="Use extrusions to display buildings' height in 3D." />
     <title>DTM</title>
     <meta content="See siin on Digitaalse Turunduse Maailm" name="description">
     <meta content="turundus, digitaalne turundus, müük" name="keywords">
@@ -11,6 +12,8 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/contact.css">
+    <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@3.5.1/dist/maplibre-gl.css' />
+    <script src='https://unpkg.com/maplibre-gl@3.5.1/dist/maplibre-gl.js'></script>
 </head>
 <body>
 
@@ -31,33 +34,36 @@
             <li><a class="votke" href="../pages/uhendust.html">Võtke Ühendust</a></li>
         </ul>
     </nav>
-    <div class="container-left">
+    <div class="container-left2">
         <div class="box2">
-            <p class="title-main">Teil on küsimusi, ettepanekuid vöi
+            <p class="title-main2">Teil on küsimusi, ettepanekuid vöi
                 olete valmis koostööks?</p>
-            <p>Meie meeskond on siin, et teid aidata. Vötke ühendust esitatud vormi, e-
+            <p class="title-main3">Meie meeskond on siin, et teid aidata. Vötke ühendust esitatud vormi, e-
                 posti vöi telefoni kaudu. Ootame teiega ühendust!</p>
         </div>
     </div>
 </div>
 
-<div class="contact-form">
-    <h1>Kontakteeruge</h1>
-    <form action="" method="post">
-        <label>
-            <input type="text" name="name" placeholder="Nimi" required>
-        </label>
-        <label>
-            <input type="email" name="email" placeholder="Email" required>
-        </label>
-        <label>
-            <input type="text" name="subject" placeholder="Teema" required>
-        </label>
-        <label>
-            <textarea name="message" rows="5" placeholder="Sõnum" required></textarea>
-        </label>
-        <button type="submit">Saada</button>
-    </form>
+<div class="outer-div">
+    <div class="contact-form">
+        <h1>Kontakteeruge</h1>
+        <form action="" method="post">
+            <label>
+                <input type="text" name="name" placeholder="Nimi" required>
+            </label>
+            <label>
+                <input type="email" name="email" placeholder="Email" required>
+            </label>
+            <label>
+                <input type="text" name="subject" placeholder="Teema" required>
+            </label>
+            <label>
+                <textarea name="message" rows="5" placeholder="Sõnum" required></textarea>
+            </label>
+            <button id="kontakt" type="submit">Saada</button>
+        </form>
+    </div>
+    <div id="map"></div>
 </div>
 
 <footer>
@@ -91,8 +97,73 @@
     </div>
 </footer>
 
+<script src="../js/script.js"></script>
 
-    <script src="../js/script.js"></script>
+<script>
+    const MAPTILER_KEY = 'get_your_own_OpIi9ZULNHzrESv6T2vL';
+    const map = new maplibregl.Map({
+        style: `https://api.maptiler.com/maps/basic-v2/style.json?key=${MAPTILER_KEY}`,
+        center: [26.7290, 58.3780], // Tartu koordinaadid
+        zoom: 15.5,
+        pitch: 45,
+        bearing: -17.6,
+        container: 'map',
+        antialias: true
+    });
+
+
+    // The 'building' layer in the streets vector source contains building-height
+    // data from OpenStreetMap.
+    map.on('load', () => {
+        // Insert the layer beneath any symbol layer.
+        const layers = map.getStyle().layers;
+
+        let labelLayerId;
+        for (let i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                labelLayerId = layers[i].id;
+                break;
+            }
+        }
+
+        map.addSource('openmaptiles', {
+            url: `https://api.maptiler.com/tiles/v3/tiles.json?key=${MAPTILER_KEY}`,
+            type: 'vector',
+        });
+
+        map.addLayer(
+            {
+                'id': '3d-buildings',
+                'source': 'openmaptiles',
+                'source-layer': 'building',
+                'type': 'fill-extrusion',
+                'minzoom': 15,
+                'paint': {
+                    'fill-extrusion-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'render_height'], 0, 'lightgray', 200, 'royalblue', 400, 'lightblue'
+                    ],
+                    'fill-extrusion-height': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        16,
+                        ['get', 'render_height']
+                    ],
+                    'fill-extrusion-base': ['case',
+                        ['>=', ['get', 'zoom'], 16],
+                        ['get', 'render_min_height'], 0
+                    ]
+                }
+            },
+            labelLayerId
+        );
+    });
+</script>
+
 </body>
 </html>
 

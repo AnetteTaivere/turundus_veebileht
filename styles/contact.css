@@ -1,6 +1,6 @@
-body {
-    padding: 20px;
-}
+body { margin: 0; padding: 0; }
+html, body, #map { height: 100%; }
+
 .contact-form {
     background-color: #f2f2f2;
     padding: 20px;
@@ -27,3 +27,83 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.title-main2 {
+    font-size: 1.8rem;
+    color: #f2f2f2;
+    font-weight: 500;
+    max-width: 600px;
+}
+
+.title-main3 {
+    font-size: 1rem;
+    color: #f2f2f2;
+    font-weight: 250;
+    max-width: 600px;
+}
+
+.container-left2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*sisu*/
+.outer-div {
+    width: 80%;
+    margin: 22px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #c8c3d2;
+    border-radius: 10px;
+}
+
+.contact-form, .map {
+    width: 49%;
+    box-sizing: border-box;
+}
+
+.contact-form {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+#map {
+    width: 90%;
+    height: 400px;
+    margin: 30px;
+}
+
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input, .contact-form textarea, .contact-form button {
+    width: 100%;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    cursor: pointer;
+}
+
+
+@media (max-width: 800px) {
+    .contact-form, .map {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .outer-div {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
