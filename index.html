@@ -1,41 +1,55 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-    </head>
+<html lang="et">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DTM</title>
+    <meta content="See siin on Digitaalse Turunduse Maailm" name="description">
+    <meta content="turundus, digitaalne turundus, müük" name="keywords">
+    <link href="assets/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="styles/reset.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <script defer src="js/script.js"></script> <!-- defer määrab selle, et skripti laadimine toimub taustal-->
+    <!--    ja käivitab skripti alles siis, kui HTML dokument on täielikult laetud.-->
+</head>
     <body>
-        <div class="header-index">
-            <nav>
-                <!--<img style= "width: 330px; height:90px; padding-right: 150px;" src="logo.png" alt="logo">-->
-                <ul>
-                    <li><a href="main.html">Esileht</a></li>
-                    <li><a href="meist.html">Meist</a></li>
-                    <li><a back href="kontakt.html">Kontakt</a></li>
-                    <li><a class="votke" href="uhendust.html">Võtke Ühendust</a></li>
-                </ul>
-            </nav>
-            <div class="container-left">
-                <div class="box2">
-                    <p1 class="title-main">Tere tulemast Digitaalse</p1>
-                    <p1 class="title-main">Turunduse Maailma!</p1>
-                </div>
-                <div class="box1">
-                    <button id="teenused">Teenused</button>
-                </div>
+    <div class="header-index">
+        <nav>
+            <a href="index.html">
+                <img class="logo" src="assets/logo.png" alt="logo">
+            </a>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Esileht</a></li>
+                <li><a href="pages/meist.html">Meist</a></li>
+                <li><a href="pages/kontakt.html">Kontakt</a></li>
+                <li><a class="votke" href="pages/uhendust.html">Võtke Ühendust</a></li>
+            </ul>
+        </nav>
+        <div class="container-left">
+            <div class="box2">
+                <p class="title-main">Tere tulemast Digitaalse</p>
+                <p class="title-main">Turunduse Maailma!</p>
+            </div>
+            <div class="box1">
+                <button id="teenused">Teenused</button>
             </div>
         </div>
-        
-        <div class="sissejuh-wrapper">
+    </div>
+
+
+    <div class="sissejuh-wrapper">
             <div class="sissejuh-text">
                 <h3>Avastage Digitaalse Turunuduse võimalusi</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, dignissimos non. Eum, animi, consectetur, aperiam soluta sunt totam sequi eaque voluptas itaque est porro accusamus excepturi iste deleniti pariatur exercitationem quod aliquid dolorum accusantium expedita dignissimos tempora. Sunt ratione cum culpa reprehenderit ipsa, molestiae nemo. Recusandae vitae molestiae dolorem ipsam!</p>
             </div>
             <div class="sissejuh-img">
-                <img src="digital.jpg" alt="">
+                <img src="assets/digital.jpg" alt="">
             </div>
         </div>
 
@@ -68,7 +82,7 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quibusdam modi facilis voluptatibus. Odit repudiandae eum magni, sit nisi velit.</p>
                 </div>
                 <div>
-                    <h4>Teenus 6</h4>  
+                    <h4>Teenus 6</h4>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quibusdam modi facilis voluptatibus. Odit repudiandae eum magni, sit nisi velit.</p>
              </div>
             </div>
@@ -82,35 +96,43 @@
             </div>
 
             <div class="portfell-imgs">
-
-                <img src="portfel.jpg" alt="">
-                <img src="portfel.jpg" alt="">
-                <img src="portfel.jpg" alt="">
-                <img src="portfel.jpg" alt="">
+                <img src="assets/portfel.jpg" alt="">
+                <img src="assets/portfel.jpg" alt="">
+                <img src="assets/portfel.jpg" alt="">
+                <img src="assets/portfel.jpg" alt="">
 
             </div>
 
-            <button id="pilte">Vaadake Rohkem</button>
+            <div class="portfell-imgs-extra" style="display: none;">
+                <img src="assets/portfel.jpg" alt="">
+                <img src="assets/portfel.jpg" alt="">
+                <img src="assets/portfel.jpg" alt="">
+                <img src="assets/portfel.jpg" alt="">
+            </div>
 
+            <button id="pilte">Vaadake Rohkem</button>
         </div>
+
 
         <footer>
             <div class="footer-logo">
                 <div>
-                <h2>Logo</h2>
+                    <a href="index.html">
+                        <img class="footerlogo" src="assets/logo.png" alt="logo">
+                    </a>
                     <div class="footer-img-wrapper">
-                        <img src="fb.png" alt="">
-                        <img src="fb.png" alt="">
-                        <img src="fb.png" alt="">
+                        <img src="assets/fb.png" alt="">
+                        <img src="assets/fb.png" alt="">
+                        <img src="assets/fb.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="footer-links">
                 <h2>Ettevõte</h2>
                 <ul>
-                    <li><a href="main.html">Esileht</a></li>
-                    <li><a href="meist.html">Meist</a></li>
-                    <li><a back href="kontakt.html">Kontakt</a></li>
+                    <li><a href="index.html">Esileht</a></li>
+                    <li><a href="pages/meist.html">Meist</a></li>
+                    <li><a back href="pages/kontakt.html">Kontakt</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
@@ -123,8 +145,6 @@
             </div>
 
         </footer>
-
-        <script src="script.js"></script>
     </body>
 </html>
-    
+
