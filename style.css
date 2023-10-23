@@ -232,11 +232,12 @@ img {
 }
 
 .teenus-text{
-    margin: 5% 35%;
+    margin: 2%  37%;
+    text-align: center;
 }
 
 .teenus-inner-wrapper {
-    margin: 2% 20%;
+    margin: 2% 21%;
     display: flex;
     flex-wrap: wrap;
 
@@ -244,7 +245,7 @@ img {
 
 .teenus-inner-wrapper div {
     width: 30%;
-    background-color: aqua;
+    background-color:  rgb(241, 234, 234);
     margin: 5px;
     text-align: center;
 }
@@ -336,8 +337,11 @@ footer {
 
 
 .footer-contact {
-    margin-left: 15%;
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
 }
+
 
 .footer-contact ul {
     display: flex;
@@ -350,9 +354,15 @@ footer {
     padding-left: 0;
     
 }
+.footer-contact h3 { 
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
+
+}
 
 .footer-contact ul li{
-    padding-right: 40px;
+    padding-right: 0px;
 }
 
 .footer-contact ul li a{
