@@ -234,7 +234,11 @@ nav ul li a {
 .container {
     display: flex;
     justify-content: center;
-    padding: 50px;
+    padding: 20px;
+}
+.container-meist {
+    display: flex;
+    justify-content: center;
 }
 .box {
     width: 200px;
@@ -281,7 +285,7 @@ a {
 #tutvuge {
     background-color: #8E43F0;
     color: white;
-    margin-top: 15%;
+    margin-top: 5%;
     padding: 15px 20px;
     border-radius: 10px;
 }
